@@ -1,0 +1,28 @@
+{
+  "name": "package_ex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precompile": "rimraf ./package  && rimraf ./lib",
+    "compile": "tsc",
+    "prebuild": "npm run compile && rimraf ./dist",
+    "build": "node ./build.js",
+    "prepack": "rimraf ./package && npm run build &&  mkdirp ./package ./package/dist && xcopy package.json .\\package\\ /k /Y && xcopy dist\\*.* .\\package\\dist\\*.* /e /h /k /Y && json -I -f ./package/package.json -e \"this.main='dist/index.min.js';this.types='dist/index.min.d.ts'\"",
+    "pack": "tar -cvzf package_ex.tar.gz package/*"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^20.11.26",
+    "axios": "^1.6.7",
+    "dts-bundle": "^0.7.3",
+    "esbuild": "^0.20.1",
+    "json": "^11.0.0",
+    "typescript": "^5.4.2",
+    "mkdirp": "^1.0.4",
+    "rimraf": "^3.0.2"
+  }
+}
