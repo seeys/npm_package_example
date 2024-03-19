@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es2016",
     "module": "commonjs",
-    "rootDir": "./",
+    "rootDir": "./src",
     "declaration": true, // d.ts 파일을 만들겠다.
     "strict": true, // strict 모드를 적용하겠다.
     "paths": { // ts가 모듈을 어디서 가져올지
@@ -12,7 +12,7 @@
     "moduleResolution": "node",
     },
     "typedocOptions": {
-      "entryPoints" : ["./"],
+      "entryPoints" : ["./src"],
       "entryPointStrategy" : "expand",
       "exclude" : "node_modules/**"
     }

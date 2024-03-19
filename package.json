@@ -9,9 +9,9 @@
     "precompile": "rimraf ./package  && rimraf ./lib",
     "compile": "tsc",
     "prebuild": "npm run compile && rimraf ./dist",
-    "build": "node ./build.js",
+    "build": "node ./build/build.js",
     "prepack": "rimraf ./package && npm run build &&  mkdirp ./package ./package/dist && xcopy package.json .\\package\\ /k /Y && xcopy dist\\*.* .\\package\\dist\\*.* /e /h /k /Y && json -I -f ./package/package.json -e \"this.main='dist/index.min.js';this.types='dist/index.min.d.ts'\"",
-    "pack": "tar -cvzf package_ex.tar.gz package/*"
+    "pack": "tar cvzf package_ex.tar.gz package/*"
   },
   "author": "",
   "license": "ISC",
